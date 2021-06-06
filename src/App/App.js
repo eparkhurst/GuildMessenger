@@ -21,25 +21,25 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-
 function App() {
   const [user] = useAuthState(auth);
-  
-  // const signOut = (e) => {
-  //   auth.signOut();
-  // }
+
+  const signOut = (e) => {
+    auth.signOut();
+  };
 
   return (
     <div className="App">
       <header className="App-header">
-        <h2>
-          Guild Messenger
-        </h2>
-        {/* { auth.currentUser && <button onClick={signOut}>Sign out</button>
-        } */}
-        </header>
+        <h3 className="AppTitle">Guild Messenger</h3>
+        {auth.currentUser && <button onClick={signOut}>Sign out</button>}
+      </header>
       <section>
-        {user ? <ChatRoom firestore={firestore} user={user}/> : <SignIn auth={auth} firebase={firebase} />}
+        {user ? (
+          <ChatRoom firestore={firestore} user={user} />
+        ) : (
+          <SignIn auth={auth} firebase={firebase} />
+        )}
       </section>
     </div>
   );

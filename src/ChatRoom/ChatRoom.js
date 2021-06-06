@@ -20,16 +20,19 @@ function ChatRoom({ firestore, user }) {
   };
 
   return (
-    <div>
-      {messages &&
-        messages.map((msg) => (
-          <p key={msg.id} className={msg.uid === user.uid ? 'UserText' : ''}>
-            {msg.text}
-          </p>
-        ))}
+    <div className="ChatRoom">
+      <div className="MessageBox">
+        {messages &&
+          messages.map((msg) => (
+            <p key={msg.id} className={msg.uid === user.uid ? 'UserText' : 'RegularText'}>
+              {msg.text}
+            </p>
+          ))}
+      </div>
       <div>
         <input
           value={newMessage}
+          placeholder="send a message"
           onChange={(e) => {
             updateMessage(e.target.value);
           }}
