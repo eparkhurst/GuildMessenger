@@ -1,14 +1,12 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
 
-function SignIn({ auth }) {
+function SignIn({ auth, firebase }) {
   const signIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
   };
   return (
     <div>
-      <button onClick={signIn}>Hello</button>
+      <button onClick={signIn}>Sign in with Google</button>
     </div>
   );
 }
