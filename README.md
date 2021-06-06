@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Guild Messenger
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+For this take home I used React and Firebase. The project was bootstrapped with create-react-app and I am using firebase auth and firestore
+
+
 
 ## Available Scripts
 
