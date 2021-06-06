@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <header className="App-header">Guild Messenger</header>
       <section>
-        {user ? <ChatRoom firestore={firestore}/> : <SignIn auth={auth} />}
+        {user ? <ChatRoom firestore={firestore} user={user}/> : <SignIn auth={auth} />}
       </section>
     </div>
   );
