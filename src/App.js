@@ -1,8 +1,12 @@
 // import './App.css';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 import ChatRoom from './ChatRoom';
+import SignIn from './SignIn';
+
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
@@ -13,14 +17,18 @@ firebase.initializeApp({
   appId: process.env.REACT_APP_appId,
   measurementId: process.env.REACT_APP_measurementId,
 });
+
+const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 function App() {
+  const [user] = useAuthState(auth);
+
   return (
     <div className="App">
       <header className="App-header">Guild Messenger</header>
       <section>
-        <ChatRoom firestore={firestore}/>
+        {user ? <ChatRoom firestore={firestore}/> : <SignIn auth={auth} />}
       </section>
     </div>
   );

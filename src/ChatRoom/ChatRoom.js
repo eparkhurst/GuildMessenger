@@ -15,7 +15,6 @@ function ChatRoom({firestore}){
       createdAt: Date.now(),
     })
     updateMessage('')
-    
   }
   return (
     <div>
